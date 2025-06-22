@@ -83,7 +83,7 @@ python run.py
 Файл `.env` уже создан с рабочими токенами:
 ```
 BOT_TOKEN=7622669002:AAEQkF7VPkjwz5ZFX5Sp4DIhyENf94HzYFE
-OPENAI_API_KEY=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
+OPENAI_API_KEY=
 ```
 
 ## 🛠️ Устранение неполадок
