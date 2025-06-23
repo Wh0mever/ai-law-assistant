@@ -18,7 +18,7 @@ class Config:
     OPENAI_TEMPERATURE = 0.1  # Минимальная температура для максимальной точности чтобы гпт не наебал нас с диз инфой
     
     # Настройки бота
-    BOT_NAME = 'Практика Суд'
+    BOT_NAME = 'AI Law Assistant'
     BOT_USERNAME = '@Sud_praktik_bot'
     APP_LINK = 'https://onelink.to/rsv8c3'
     

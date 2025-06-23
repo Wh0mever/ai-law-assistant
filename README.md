@@ -6,13 +6,13 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-green?style=for-the-badge&logo=openai)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/your-username/praktika-sud-bot?style=for-the-badge&logo=github)
+![Stars](https://img.shields.io/github/stars/Wh0mever/ai-law-assistant?style=for-the-badge&logo=github)
 
 **🚀 Революционный AI-бот для юридической помощи нового поколения**
 
 *Найдите судебную практику, подготовьте жалобы и проверьте документы с помощью GPT-4o*
 
-[🤖 Попробовать бота](https://t.me/Sud_praktik_bot) | [📚 Документация](#-установка) | [🚀 Развертывание](#-развертывание) | [⭐ GitHub](https://github.com/your-username/praktika-sud-bot)
+[🤖 Попробовать бота](https://t.me/Sud_praktik_bot) | [📚 Документация](#-установка) | [🚀 Развертывание](#-развертывание) | [⭐ GitHub](https://github.com/Wh0mever/ai-law-assistant)
 
 </div>
 
@@ -38,12 +38,12 @@
 <br>Автоматическое создание апелляционных и кассационных жалоб
 </td>
 <td align="center" width="20%">
-<img src="https://img.icons8.com/fluency/64/checked-checkbox.png" alt="Проверка"/>
+<img src="https://img.icons8.com/fluency/64/checklist.png" alt="Проверка"/>
 <br><b>📄 Экспертиза документов</b>
 <br>Глубокий анализ на ошибки и юридические риски
 </td>
 <td align="center" width="20%">
-<img src="https://img.icons8.com/fluency/64/web-search.png" alt="Web"/>
+<img src="https://img.icons8.com/fluency/64/internet.png" alt="Web"/>
 <br><b>🌐 Web-поиск</b>
 <br>Поиск актуальной правовой информации в интернете
 </td>
@@ -141,7 +141,7 @@ sequenceDiagram
 ## 📂 Инновационная архитектура проекта
 
 ```
-🏛️ praktika-sud-bot/
+🏛️ ai-law-assistant/
 │
 ├── 🚀 Core System
 │   ├── 🤖 main.py                    # Основной модуль бота с async/await
@@ -211,8 +211,8 @@ sequenceDiagram
 
 ```bash
 # 🎯 1. Клонирование с полной историей
-git clone --depth=1 https://github.com/your-username/praktika-sud-bot.git
-cd praktika-sud-bot
+git clone --depth=1 https://github.com/Wh0mever/ai-law-assistant.git
+cd ai-law-assistant
 
 # 🐍 2. Создание изолированного окружения
 python3 -m venv venv
@@ -287,7 +287,7 @@ docker-compose up -d
 📊 АНАЛИЗ ПРАВОВОЙ СИТУАЦИИ
 
 🎯 **Категория спора:** Банковские споры / Досрочное погашение
-📅 **Актуальность:** Декабрь 2024
+📅 **Актуальность:** Июнь 2025
 
 ⚖️ **РЕЛЕВАНТНАЯ СУДЕБНАЯ ПРАКТИКА:**
 
@@ -376,10 +376,10 @@ graph LR
 
 ```bash
 # 🎯 Быстрое развертывание на VPS
-curl -fsSL https://raw.githubusercontent.com/your-username/praktika-sud-bot/main/deploy.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Wh0mever/ai-law-assistant/main/deploy.sh | bash
 
 # 🔧 Кастомное развертывание
-./deploy.sh --server your-server.com --domain praktika-sud.example.com --ssl
+./deploy.sh --server your-server.com --domain ai-law-assistant.example.com --ssl
 ```
 
 ### 🐳 Docker контейнеризация
@@ -388,8 +388,8 @@ curl -fsSL https://raw.githubusercontent.com/your-username/praktika-sud-bot/main
 # docker-compose.yml
 version: '3.8'
 services:
-  praktika-sud-bot:
-    image: praktika-sud:latest
+  ai-law-assistant:
+    image: ai-law-assistant:latest
     container_name: legal-ai-bot
     restart: unless-stopped
     environment:
@@ -406,8 +406,8 @@ services:
 
 ```bash
 # 📈 Системные метрики
-systemctl status praktika-sud-bot
-journalctl -u praktika-sud-bot -f
+systemctl status ai-law-assistant
+journalctl -u ai-law-assistant -f
 
 # 📊 Логи производительности
 tail -f logs/performance.log | grep "response_time"
@@ -487,7 +487,7 @@ python analytics/usage_stats.py --period week
 
 <div align="center">
 
-![Достижения](https://img.shields.io/badge/🏆_Лучший_AI_проект-2024-gold?style=for-the-badge)
+![Достижения](https://img.shields.io/badge/🏆_Лучший_AI_проект-2025-gold?style=for-the-badge)
 ![Пользователи](https://img.shields.io/badge/👥_Активных_пользователей-15K+-blue?style=for-the-badge)
 ![Запросы](https://img.shields.io/badge/🔍_Обработано_запросов-50K+-green?style=for-the-badge)
 
@@ -514,8 +514,7 @@ python analytics/usage_stats.py --period week
 | 🤖 **Telegram Bot** | [@Sud_praktik_bot](https://t.me/Sud_praktik_bot) | Основной бот |
 | 📱 **Mobile App** | [Календарь Юриста](https://onelink.to/rsv8c3) | Мобильное приложение |
 | 💬 **Support** | [@whomever_support](https://t.me/whomever_support) | Техническая поддержка |
-| 📧 **Email** | support@praktika-sud.ru | Официальная почта |
-| 🐙 **GitHub** | [Issues](https://github.com/your-username/praktika-sud-bot/issues) | Баги и предложения |
+| 🐙 **GitHub** | [Issues](https://github.com/Wh0mever/ai-law-assistant/issues) | Баги и предложения |
 
 </div>
 
@@ -523,7 +522,7 @@ python analytics/usage_stats.py --period week
 
 ```bash
 # 🍴 Форк репозитория
-git clone https://github.com/your-fork/praktika-sud-bot.git
+git clone https://github.com/your-fork/ai-law-assistant.git
 
 # 🌿 Создание ветки для фичи
 git checkout -b feature/amazing-feature
@@ -612,12 +611,12 @@ git push origin feature/amazing-feature
 
 ### 📊 GitHub Activity
 
-![GitHub Activity](https://github-readme-activity-graph.vercel.app/graph?username=your-username&repo=praktika-sud-bot&theme=github-compact)
+![GitHub Activity](https://github-readme-activity-graph.vercel.app/graph?username=Wh0mever&repo=ai-law-assistant&theme=github-compact)
 
 </div>
 
 ---
 
 <div align="center">
-<sub>🔄 Последнее обновление: Декабрь 2024 | 📦 Версия: 2.0.0 | 🏗️ Build: Stable</sub>
+<sub>🔄 Последнее обновление: 24 июня 2025 | 📦 Версия: 2.0.0 | 🏗️ Build: Stable</sub>
 </div> 
