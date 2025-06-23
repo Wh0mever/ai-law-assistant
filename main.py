@@ -57,13 +57,13 @@ def get_back_keyboard():
 
 def get_share_keyboard():
     # Текст для WhatsApp с информацией о боте
-    whatsapp_text = "🤖 Попробуйте бота *Практика.Суд* - бесплатная юридическая помощь!\n\n✅ Найти судебную практику\n✅ Подготовить жалобу\n✅ Проверить документы\n✅ ИИ консультация\n\nhttps://t.me/dimon82juris_bot"
+    whatsapp_text = "🤖 Попробуйте бота *Практика Суд* - бесплатная юридическая помощь!\n\n✅ Найти судебную практику\n✅ Подготовить жалобу\n✅ Проверить документы\n✅ ИИ консультация\n\nhttps://t.me/Sud_praktik_bot"
     # Делаем URL кодирование заранее, чтобы избежать backslash в f-строке
     encoded_text = whatsapp_text.replace(' ', '%20').replace('\n', '%0A')
     whatsapp_url = f"https://wa.me/?text={encoded_text}"
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📲 Telegram", switch_inline_query="Попробуйте бота Практика.Суд - бесплатная юридическая помощь!")],
+        [InlineKeyboardButton(text="📲 Telegram", switch_inline_query="Попробуйте бота Практика Суд - бесплатная юридическая помощь!")],
         [InlineKeyboardButton(text="💬 Поделиться через WhatsApp", url=whatsapp_url)],
         [InlineKeyboardButton(text="🔙 Назад", callback_data="main_menu")]
     ])
@@ -85,7 +85,9 @@ async def cmd_start(message: types.Message):
 async def process_start_bot(callback_query: types.CallbackQuery):
     await callback_query.message.edit_text(
         Config.ABOUT_MESSAGE,
-        reply_markup=get_main_keyboard()
+        reply_markup=get_main_keyboard(),
+        disable_web_page_preview=True,
+        parse_mode="HTML"
     )
 
 # Обработчик возврата в главное меню
@@ -124,17 +126,36 @@ async def process_case_description(message: types.Message, state: FSMContext):
         analysis = await ai_service.find_legal_practice(message.text)
         
         # Удаляем сообщение о обработке
-        await processing_message.delete()
+        try:
+            await processing_message.delete()
+        except Exception:
+            pass  # Игнорируем ошибки удаления
         
-        # Отправляем результат
-        await message.answer(
-            f"📋 **Анализ вашей ситуации:**\n\n{analysis}",
-            reply_markup=get_back_keyboard(),
-            parse_mode="Markdown"
-        )
+        # Проверяем длину ответа
+        if len(analysis) > 4000:
+            # Если ответ слишком длинный, отправляем файлом
+            with open(f"analysis_{message.from_user.id}.txt", "w", encoding="utf-8") as f:
+                f.write(analysis)
+            
+            await message.answer_document(
+                FSInputFile(f"analysis_{message.from_user.id}.txt"),
+                caption="📋 Анализ вашей ситуации готов! Файл содержит подробное рассмотрение.",
+                reply_markup=get_back_keyboard()
+            )
+            
+            os.remove(f"analysis_{message.from_user.id}.txt")
+        else:
+            # Отправляем результат
+            await message.answer(
+                analysis,
+                reply_markup=get_back_keyboard()
+            )
         
     except Exception as e:
-        await processing_message.delete()
+        try:
+            await processing_message.delete()
+        except Exception:
+            pass
         await message.answer(
             "❌ Произошла ошибка при анализе ситуации. Попробуйте еще раз позже.",
             reply_markup=get_back_keyboard()
@@ -190,7 +211,10 @@ async def process_document_for_complaint(message: types.Message, state: FSMConte
         os.remove(file_path)
         
         if not document_text:
-            await processing_message.delete()
+            try:
+                await processing_message.delete()
+            except Exception:
+                pass
             await message.answer(
                 "❌ Не удалось извлечь текст из документа. Проверьте, что файл не поврежден.",
                 reply_markup=get_back_keyboard()
@@ -200,7 +224,10 @@ async def process_document_for_complaint(message: types.Message, state: FSMConte
         # Генерируем жалобу с помощью ИИ
         complaint = await ai_service.generate_complaint(document_text)
         
-        await processing_message.delete()
+        try:
+            await processing_message.delete()
+        except Exception:
+            pass
         
         # Отправляем результат
         if len(complaint) > 4000:
@@ -217,13 +244,15 @@ async def process_document_for_complaint(message: types.Message, state: FSMConte
             os.remove(f"complaint_{message.from_user.id}.txt")
         else:
             await message.answer(
-                f"📝 **Проект жалобы:**\n\n{complaint}",
-                reply_markup=get_back_keyboard(),
-                parse_mode="Markdown"
+                complaint,
+                reply_markup=get_back_keyboard()
             )
             
     except Exception as e:
-        await processing_message.delete()
+        try:
+            await processing_message.delete()
+        except Exception:
+            pass
         await message.answer(
             "❌ Произошла ошибка при обработке документа. Попробуйте еще раз позже.",
             reply_markup=get_back_keyboard()
@@ -279,7 +308,10 @@ async def process_document_for_check(message: types.Message, state: FSMContext):
         os.remove(file_path)
         
         if not document_text:
-            await processing_message.delete()
+            try:
+                await processing_message.delete()
+            except Exception:
+                pass
             await message.answer(
                 "❌ Не удалось извлечь текст из документа. Проверьте, что файл не поврежден.",
                 reply_markup=get_back_keyboard()
@@ -289,17 +321,36 @@ async def process_document_for_check(message: types.Message, state: FSMContext):
         # Проверяем документ с помощью ИИ
         analysis = await ai_service.check_document(document_text)
         
-        await processing_message.delete()
+        try:
+            await processing_message.delete()
+        except Exception:
+            pass
         
-        # Отправляем результат
-        await message.answer(
-            f"📋 **Анализ документа:**\n\n{analysis}",
-            reply_markup=get_back_keyboard(),
-            parse_mode="Markdown"
-        )
+        # Проверяем длину ответа
+        if len(analysis) > 4000:
+            # Если ответ слишком длинный, отправляем файлом
+            with open(f"document_check_{message.from_user.id}.txt", "w", encoding="utf-8") as f:
+                f.write(analysis)
+            
+            await message.answer_document(
+                FSInputFile(f"document_check_{message.from_user.id}.txt"),
+                caption="📋 Анализ документа готов! Файл содержит подробную проверку.",
+                reply_markup=get_back_keyboard()
+            )
+            
+            os.remove(f"document_check_{message.from_user.id}.txt")
+        else:
+            # Отправляем результат
+            await message.answer(
+                analysis,
+                reply_markup=get_back_keyboard()
+            )
         
     except Exception as e:
-        await processing_message.delete()
+        try:
+            await processing_message.delete()
+        except Exception:
+            pass
         await message.answer(
             "❌ Произошла ошибка при проверке документа. Попробуйте еще раз позже.",
             reply_markup=get_back_keyboard()
@@ -311,7 +362,7 @@ async def process_document_for_check(message: types.Message, state: FSMContext):
 async def process_share_bot(callback_query: types.CallbackQuery):
     await callback_query.message.edit_text(
         "📢 Расскажите о нашем боте друзьям и коллегам!\n\n"
-        "🤖 Бот Практика.Суд поможет:\n"
+        "🤖 Бот Практика Суд поможет:\n"
         "• Найти судебную практику по любому спору\n"
         "• Подготовить апелляционную жалобу\n"
         "• Проверить документы на ошибки\n"
@@ -330,7 +381,7 @@ async def unknown_message(message: types.Message):
 
 # Основная функция
 async def main():
-    logger.info("Запуск бота Практика.Суд")
+    logger.info("Запуск бота Практика Суд")
     
     try:
         # Проверяем конфигурацию

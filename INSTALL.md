@@ -82,8 +82,8 @@ python run.py
 
 Файл `.env` уже создан с рабочими токенами:
 ```
-BOT_TOKEN=7622669002:AAEQkF7VPkjwz5ZFX5Sp4DIhyENf94HzYFE
-OPENAI_API_KEY=
+BOT_TOKEN=ваш_токен_telegram_бота
+OPENAI_API_KEY=ваш_ключ_openai_api
 ```
 
 ## 🛠️ Устранение неполадок

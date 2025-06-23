@@ -2,29 +2,52 @@ import openai
 import logging
 from typing import Optional
 from legal_knowledge import LegalKnowledge
+from web_search import WebSearchService
 
 logger = logging.getLogger(__name__)
 
 class AIService:
     def __init__(self, api_key: str):
         self.client = openai.AsyncOpenAI(api_key=api_key)
+        self.web_search = WebSearchService()
         
     async def find_legal_practice(self, case_description: str) -> str:
         """Поиск судебной практики по описанию ситуации"""
         try:
             system_prompt = LegalKnowledge.get_system_prompt_for_practice()
             
+            # Сначала получаем базовый анализ от ИИ
             from config import Config
-            response = await self.client.chat.completions.create(
+            ai_response = await self.client.chat.completions.create(
                 model=Config.OPENAI_MODEL,
                 messages=[
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"Проанализируйте ситуацию и найдите судебную практику: {case_description}"}
+                    {"role": "user", "content": f"Проанализируйте ситуацию и дайте общие рекомендации: {case_description}"}
                 ],
                 temperature=Config.OPENAI_TEMPERATURE
             )
             
-            return response.choices[0].message.content
+            ai_analysis = ai_response.choices[0].message.content
+            
+            # Добавляем важное предупреждение
+            final_response = f"""{ai_analysis}
+
+---
+
+⚠️ **ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ:**
+• Данный анализ носит информационный характер
+• Все конкретные правовые вопросы требуют консультации с практикующим юристом
+• Актуальную судебную практику необходимо проверять в официальных источниках
+• Не полагайтесь только на этот анализ при принятии правовых решений
+
+📞 **Рекомендация:** Обратитесь к юристу в вашем регионе для получения профессиональной консультации по вашему делу.
+
+---
+
+❓ **Не нашли ответа? Возникли вопросы?**
+🆓 **Бесплатная юридическая консультация** @ZachitaPrava02"""
+            
+            return final_response
             
         except Exception as e:
             logger.error(f"Error in find_legal_practice: {e}")
@@ -70,7 +93,17 @@ class AIService:
                 temperature=Config.OPENAI_TEMPERATURE
             )
             
-            return response.choices[0].message.content
+            complaint_text = response.choices[0].message.content
+            
+            # Добавляем рекламное сообщение
+            final_response = f"""{complaint_text}
+
+---
+
+❓ **Не нашли ответа? Возникли вопросы?**
+🆓 **Бесплатная юридическая консультация** @ZachitaPrava02"""
+            
+            return final_response
             
         except Exception as e:
             logger.error(f"Error in generate_complaint: {e}")
@@ -122,7 +155,17 @@ class AIService:
                 temperature=Config.OPENAI_TEMPERATURE
             )
             
-            return response.choices[0].message.content
+            analysis_text = response.choices[0].message.content
+            
+            # Добавляем рекламное сообщение
+            final_response = f"""{analysis_text}
+
+---
+
+❓ **Не нашли ответа? Возникли вопросы?**
+🆓 **Бесплатная юридическая консультация** @ZachitaPrava02"""
+            
+            return final_response
             
         except Exception as e:
             logger.error(f"Error in check_document: {e}")

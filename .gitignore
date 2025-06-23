@@ -70,37 +70,4 @@ Thumbs.db
 # Certificates
 *.pem
 *.key
-*.crt
-
-# Конфиденциальные данные
-.env
-config.txt
-*.key
-
-# Временные файлы
-temp/
-tmp/
-*.tmp
-*.temp
-temp_*
-
-# Документы (конфиденциальные)
-*.txt
-!requirements.txt
-!.gitignore
-
-# Архивы
-*.tar.gz
-*.zip
-*.rar
-
-# Резервные копии
-*.bak
-*.backup
-
-# Сервисы
-*.service
-
-# Персональные файлы
-personal/
-private/ 
+*.crt 
