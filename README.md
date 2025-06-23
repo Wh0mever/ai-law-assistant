@@ -2,11 +2,9 @@
 
 <div align="center">
 
-![Практика.Суд](https://img.shields.io/badge/Практика.Суд-AI%20Legal%20Bot-blue?style=for-the-badge&logo=telegram)
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)
-![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-green?style=for-the-badge&logo=openai)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/Wh0mever/ai-law-assistant?style=for-the-badge&logo=github)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-green?style=flat-square&logo=openai)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
 **🚀 Революционный AI-бот для юридической помощи нового поколения**
 
@@ -330,19 +328,13 @@ flowchart TD
     style F fill:#e0f2f1
 ```
 
-### 📊 Аналитическая панель
+### 📊 Возможности системы
 
-<div align="center">
-
-| Метрика | Значение | Тренд |
-|---------|----------|--------|
-| 🔍 **Обработано запросов** | 15,423 | 📈 +23% |
-| 📝 **Сгенерировано жалоб** | 3,847 | 📈 +45% |
-| 📄 **Проверено документов** | 8,756 | 📈 +67% |
-| ⭐ **Рейтинг пользователей** | 4.8/5.0 | 📈 +0.2 |
-| 🎯 **Точность анализа** | 94.2% | 📈 +1.3% |
-
-</div>
+Бот предоставляет следующие функции:
+- 🔍 Поиск и анализ судебной практики
+- 📝 Генерация процессуальных документов  
+- 📄 Проверка юридических документов
+- 🤖 AI-консультации по правовым вопросам
 
 ## 🌐 Интеграции и API
 
@@ -483,25 +475,9 @@ python analytics/usage_stats.py --period week
 - [ ] 🔗 **Blockchain интеграция** - Верификация документов
 - [ ] 🎯 **Персонализация** - Адаптация под стиль пользователя
 
-## 🏆 Достижения и признание
+## 🏆 О проекте
 
-<div align="center">
-
-![Достижения](https://img.shields.io/badge/🏆_Лучший_AI_проект-2025-gold?style=for-the-badge)
-![Пользователи](https://img.shields.io/badge/👥_Активных_пользователей-15K+-blue?style=for-the-badge)
-![Запросы](https://img.shields.io/badge/🔍_Обработано_запросов-50K+-green?style=for-the-badge)
-
-### 📊 Статистика проекта
-
-| Метрика | Значение | Рост |
-|---------|----------|------|
-| ⭐ **GitHub Stars** | 1,234 | +456% |
-| 🍴 **Forks** | 389 | +234% |
-| 👥 **Contributors** | 27 | +185% |
-| 📥 **Downloads** | 15.7K | +567% |
-| 🐛 **Issues Closed** | 95.2% | +12% |
-
-</div>
+Современный AI-бот для юридической помощи, разработанный с использованием новейших технологий машинного обучения.
 
 ## 🆘 Поддержка и сообщество
 
@@ -536,42 +512,18 @@ git push origin feature/amazing-feature
 
 ### 🎁 Поддержать проект
 
-<div align="center">
+Если проект оказался полезным, вы можете поддержать разработку:
 
-[![Поддержать на Patreon](https://img.shields.io/badge/Patreon-поддержать-orange?style=for-the-badge&logo=patreon)](https://patreon.com/whomever)
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-поддержать-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/whomever)
-[![PayPal](https://img.shields.io/badge/PayPal-поддержать-blue?style=for-the-badge&logo=paypal)](https://paypal.me/whomever)
+- ⭐ Поставить звезду репозиторию
+- 🐛 Сообщить об ошибках в Issues  
+- 💻 Внести вклад в код через Pull Request
+- ☕ [Buy Me A Coffee](https://buymeacoffee.com/whomever)
 
-</div>
+## 👥 Разработчик
 
-## 👥 Команда мечты
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/fluency/96/programmer.png" alt="Developer"/>
-<br><b>🧠 AI Developer</b>
-<br>Wh0mever
-<br><a href="https://github.com/Wh0mever">@Wh0mever</a>
-</td>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/fluency/96/law.png" alt="Lawyer"/>
-<br><b>⚖️ Legal Expert</b>
-<br>Юридический консультант
-<br><a href="https://t.me/whomever_support">@whomever_support</a>
-</td>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/fluency/96/devops.png" alt="DevOps"/>
-<br><b>🔧 DevOps Engineer</b>
-<br>Системный администратор
-<br><a href="https://buymeacoffee.com/whomever">☕ Buy Coffee</a>
-</td>
-</tr>
-</table>
-
-</div>
+**🧠 Разработчик:** Wh0mever  
+**📧 Контакт:** [@Wh0mever](https://github.com/Wh0mever)  
+**💬 Поддержка:** [@whomever_support](https://t.me/whomever_support)
 
 ## 📄 Лицензия и правовая информация
 
@@ -604,14 +556,7 @@ git push origin feature/amazing-feature
 
 *Сделано с ❤️ и передовыми AI технологиями для российского юридического сообщества*
 
-[![Попробовать бота](https://img.shields.io/badge/🤖_Попробовать_бота-blue?style=for-the-badge)](https://t.me/Sud_praktik_bot)
-[![Документация](https://img.shields.io/badge/📖_Документация-green?style=for-the-badge)](INSTALL.md)
-[![Развернуть](https://img.shields.io/badge/🚀_Развернуть-orange?style=for-the-badge)](DEPLOY_INSTRUCTIONS.md)
-[![Поддержать](https://img.shields.io/badge/☕_Поддержать-yellow?style=for-the-badge)](https://buymeacoffee.com/whomever)
-
-### 📊 GitHub Activity
-
-![GitHub Activity](https://github-readme-activity-graph.vercel.app/graph?username=Wh0mever&repo=ai-law-assistant&theme=github-compact)
+**🤖 [Попробовать бота](https://t.me/Sud_praktik_bot)** | **📖 [Документация](INSTALL.md)** | **🚀 [Развернуть](DEPLOY_INSTRUCTIONS.md)**
 
 </div>
 
