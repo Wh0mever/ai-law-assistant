@@ -573,6 +573,7 @@ git push origin feature/amazing-feature
 
 [![GitHub](https://img.shields.io/badge/GitHub-@Wh0mever-black?style=for-the-badge&logo=github)](https://github.com/Wh0mever)
 [![Telegram](https://img.shields.io/badge/Telegram-@whomever__support-blue?style=for-the-badge&logo=telegram)](https://t.me/whomever_support)
+[![Website](https://img.shields.io/badge/Website-whomever.tech-orange?style=for-the-badge&logo=Google-chrome)](https://www.whomever.tech)
 
 </div>
 
